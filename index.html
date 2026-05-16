@@ -11,12 +11,15 @@
     <div id="stars"></div>
     <div id="stars2"></div>
 
+    <button id="music-btn" class="music-button">🎵 Reproducir Música</button>
+    <audio id="background-music" src="assets/Ámame.mp3" loop></audio>
+
     <div class="container">
-        <div class="main-card">
+        <div class="main-card" id="star-map-card">
             <img src="assets/mapa-estelar.png.png" alt="Mapa Estelar 19 de Junio" class="star-map">
         </div>
 
-        <div class="counter-card">
+        <div class="counter-card" id="time-box">
             <h2>Tiempo transcurrido desde nuestro inicio:</h2>
             <div id="countdown">
                 <div class="time-block">
@@ -36,6 +39,14 @@
                     <p>Segundos</p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="snoopy-overlay" class="hidden">
+        <div class="snoopy-content">
+            <img src="assets/snoopy-kiss.gif" alt="Snoopy Sorpresa" class="snoopy-img">
+            <h3>¡Encontraste el secreto! 🐾❤️</h3>
+            <button id="close-snoopy">Cerrar</button>
         </div>
     </div>
 
