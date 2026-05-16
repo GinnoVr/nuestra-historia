@@ -12,11 +12,16 @@
     <div id="stars2"></div>
 
     <button id="music-btn" class="music-button">🎵 Reproducir Música</button>
-    <audio id="background-music" src="assets/Ámame.mp3" loop></audio>
+    <audio id="background-music" src="assets/amame.mp3" loop></audio>
 
     <div class="container">
         <div class="main-card" id="star-map-card">
             <img src="assets/mapa-estelar.png.png" alt="Mapa Estelar 19 de Junio" class="star-map">
+        </div>
+
+        <div class="counter-card hidden" id="special-card" style="margin-bottom: 25px; background: rgba(255, 105, 180, 0.15); border-color: rgba(255, 105, 180, 0.3);">
+            <h2 id="special-title" style="font-size: 16pt; font-weight: bold; color: #fff;"></h2>
+            <p id="special-message" style="font-size: 11pt; color: #f1f5f9; margin-top: 10px; line-height: 1.4;"></p>
         </div>
 
         <div class="counter-card" id="time-box">
@@ -44,12 +49,14 @@
 
     <div id="snoopy-overlay" class="hidden">
         <div class="snoopy-content">
-            <img src="assets/snoopy-kiss.gif" alt="Snoopy Sorpresa" class="snoopy-img">
+            <img src="assets/snoopy.gif" alt="Snoopy Sorpresa" class="snoopy-img">
             <h3>¡Encontraste el secreto! 🐾❤️</h3>
             <button id="close-snoopy">Cerrar</button>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
     <script src="js/script.js"></script>
 </body>
 </html>
