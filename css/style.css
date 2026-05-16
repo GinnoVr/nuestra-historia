@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #0b111e; /* Azul marino profundo */
+    background-color: #0b111e;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #ffffff;
     min-height: 100vh;
@@ -15,7 +15,6 @@ body {
     position: relative;
 }
 
-/* Contenedor Principal */
 .container {
     width: 100%;
     max-width: 500px;
@@ -26,7 +25,6 @@ body {
     z-index: 10;
 }
 
-/* Tarjeta de la Imagen */
 .main-card {
     width: 100%;
     border-radius: 12px;
@@ -41,7 +39,6 @@ body {
     display: block;
 }
 
-/* Tarjeta del Contador */
 .counter-card {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(4px);
@@ -51,7 +48,7 @@ body {
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
-    cursor: pointer; /* Hace que el mouse cambie a una manito para indicar que se puede hacer clic */
+    cursor: pointer;
 }
 
 .counter-card h2 {
@@ -62,7 +59,6 @@ body {
     color: #cbd5e1;
 }
 
-/* Bloques del Contador */
 #countdown {
     display: table;
     width: 100%;
@@ -89,41 +85,7 @@ body {
     margin-top: 4px;
 }
 
-/* === EFECTO DE ESTRELLAS DE FONDO ANIMADAS === */
-#stars, #stars2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: 200px 200px;
-    z-index: 1;
-}
-
-#stars {
-    background-image: 
-        radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1.5px 1.5px at 40px 70px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 50px 160px, #fff, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 80px 120px, rgba(255,255,255,0.7), rgba(0,0,0,0));
-    animation: twinkle 4s infinite ease-in-out;
-}
-
-#stars2 {
-    background-image: 
-        radial-gradient(1px 1px at 100px 20px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1.5px 1.5px at 140px 90px, rgba(255,255,255,0.5), rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 180px 140px, #fff, rgba(0,0,0,0));
-    animation: twinkle 6s infinite ease-in-out;
-    animation-delay: 2s;
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-}
-
-/* === ESTILOS DEL BOTÓN DE MÚSICA === */
+/* === BOTONES FLOTANTES SUPERIORES === */
 .music-button {
     position: fixed;
     top: 20px;
@@ -140,63 +102,161 @@ body {
     transition: all 0.3s ease;
 }
 
-.music-button:hover {
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+.game-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 105, 180, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 105, 180, 0.3);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 100;
+    font-size: 10pt;
+    transition: all 0.3s ease;
 }
 
-/* === ESTILOS DEL EASTER EGG (SNOOPY) === */
-#snoopy-overlay {
+.music-button:hover, .game-button:hover {
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+    transform: scale(1.05);
+}
+
+/* === INTERFAZ DEL JUEGO SUPERPUESTO === */
+#game-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(11, 17, 30, 0.9);
+    background: #0b111e;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 200;
-    transition: opacity 0.5s ease;
+    z-index: 150;
 }
 
+#game-hearts-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.game-content {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 35px 25px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 380px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    z-index: 5;
+    position: relative;
+}
+
+.game-content h2 {
+    font-weight: 300;
+    font-size: 16pt;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+}
+
+.game-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 80px;
+    position: relative;
+    width: 100%;
+}
+
+.game-ans-btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 11pt;
+    transition: transform 0.1s ease, background 0.3s ease;
+}
+
+.yes-btn {
+    background: #22c55e;
+    color: white;
+}
+
+.no-btn {
+    background: #ef4444;
+    color: white;
+}
+
+/* Animación de vibración (Error de Un Poco) */
+.shake {
+    animation: shakeAnim 0.4s ease-in-out;
+}
+@keyframes shakeAnim {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+/* Corazones flotantes de fondo */
+.floating-heart {
+    position: absolute;
+    color: rgba(244, 63, 94, 0.6);
+    font-size: 24px;
+    user-select: none;
+    pointer-events: none;
+    animation: floatUp 3s linear forwards;
+}
+@keyframes floatUp {
+    0% { transform: translateY(105vh) scale(1); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+}
+
+/* Corazones estáticos crecientes */
+.growing-heart-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: #ef4444;
+    font-size: 100px;
+    opacity: 0.15;
+    z-index: 1;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* === ESTILOS SNOOPY === */
+#snoopy-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(11, 17, 30, 0.9);
+    display: flex; justify-content: center; align-items: center; z-index: 200;
+}
 .snoopy-content {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    max-width: 90%;
-    width: 350px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    padding: 30px; border-radius: 15px; text-align: center;
+    max-width: 90%; width: 350px;
 }
+.snoopy-img { width: 100%; max-width: 200px; height: auto; margin-bottom: 20px; }
+.snoopy-content h3 { font-weight: 300; margin-bottom: 20px; color: white; }
+.snoopy-content button { background: white; color: #0b111e; border: none; padding: 8px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; }
 
-.snoopy-img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    margin-bottom: 20px;
-}
+/* Capas de estrellas originales */
+#stars, #stars2 { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: 200px 200px; z-index: 1; }
+#stars { background-image: radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)), radial-gradient(1.5px 1.5px at 40px 70px, #fff, rgba(0,0,0,0)), radial-gradient(1px 1px at 50px 160px, #fff, rgba(0,0,0,0)), radial-gradient(2px 2px at 80px 120px, rgba(255,255,255,0.7), rgba(0,0,0,0)); animation: twinkle 4s infinite ease-in-out; }
+#stars2 { background-image: radial-gradient(1px 1px at 100px 20px, #fff, rgba(0,0,0,0)), radial-gradient(1.5px 1.5px at 140px 90px, rgba(255,255,255,0.5), rgba(0,0,0,0)), radial-gradient(1px 1px at 180px 140px, #fff, rgba(0,0,0,0)); animation: twinkle 6s infinite ease-in-out; animation-delay: 2s; }
+@keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 
-.snoopy-content h3 {
-    font-weight: 300;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    color: #ffffff;
-}
-
-.snoopy-content button {
-    background: #ffffff;
-    color: #0b111e;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-/* Clase para ocultar elementos */
-.hidden {
-    display: none !important;
-}
+.hidden { display: none !important; }

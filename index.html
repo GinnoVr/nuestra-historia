@@ -11,8 +11,10 @@
     <div id="stars"></div>
     <div id="stars2"></div>
 
+    <button id="game-btn" class="game-button">❓ Pregunta Seria</button>
     <button id="music-btn" class="music-button">🎵 Reproducir Música</button>
-    <audio id="background-music" src="assets/amame.mp3" loop></audio>
+    
+    <audio id="background-music" src="assets/Ámame.mp3" loop></audio>
 
     <div class="container">
         <div class="main-card" id="star-map-card">
@@ -47,16 +49,27 @@
         </div>
     </div>
 
+    <div id="game-overlay" class="hidden">
+        <div id="game-hearts-bg"></div>
+        
+        <div class="game-content" id="game-card">
+            <h2 id="game-question">¿Cuánto me amas?</h2>
+            <div class="game-buttons" id="game-buttons-container">
+                <button id="btn-yes" class="game-ans-btn yes-btn">Muchísimo</button>
+                <button id="btn-no" class="game-ans-btn no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
     <div id="snoopy-overlay" class="hidden">
         <div class="snoopy-content">
-            <img src="assets/snoopy.gif" alt="Snoopy Sorpresa" class="snoopy-img">
+            <img src="assets/snoopy-kiss.gif" alt="Snoopy Sorpresa" class="snoopy-img">
             <h3>¡Encontraste el secreto! 🐾❤️</h3>
             <button id="close-snoopy">Cerrar</button>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
     <script src="js/script.js"></script>
 </body>
 </html>
