@@ -159,6 +159,7 @@ body {
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     z-index: 5;
     position: relative;
+    color: #fff;
 }
 
 .game-content h2 {
@@ -167,6 +168,7 @@ body {
     margin-bottom: 30px;
     line-height: 1.4;
     letter-spacing: 0.5px;
+    color: #fff;
 }
 
 .game-buttons {
@@ -198,7 +200,7 @@ body {
     color: white;
 }
 
-/* Animación de vibración (Error de Un Poco) */
+/* Animación de vibración para "Un poco" */
 .shake {
     animation: shakeAnim 0.4s ease-in-out;
 }
@@ -208,21 +210,41 @@ body {
     40%, 80% { transform: translateX(10px); }
 }
 
-/* Corazones flotantes de fondo */
-.floating-heart {
+/* == ANIMACIONES DE CORAZONES DE FONDO == */
+
+/* 1. Corazones ROTOS que CAEN (Para "No") */
+.falling-heart-broken {
     position: absolute;
-    color: rgba(244, 63, 94, 0.6);
+    color: rgba(244, 63, 94, 0.8); /* Rojo suave */
     font-size: 24px;
     user-select: none;
     pointer-events: none;
-    animation: floatUp 3s linear forwards;
+    animation: fallingBrokenKeys 3s linear forwards;
+    /* Asegurar que el emoji de corazon roto se vea bien */
+    font-family: "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Symbol", sans-serif;
 }
-@keyframes floatUp {
+@keyframes fallingBrokenKeys {
+    0% { transform: translateY(-10vh) scale(1); opacity: 1; }
+    100% { transform: translateY(105vh) scale(1.5); opacity: 0; }
+}
+
+/* 2. Corazones ENTEROS que SUBEN (Para "Si") */
+.rising-heart-whole {
+    position: absolute;
+    color: rgba(239, 68, 68, 0.6); /* Rojo amor profundo */
+    font-size: 24px;
+    user-select: none;
+    pointer-events: none;
+    animation: risingWholeKeys 3s linear forwards;
+    /* Asegurar que el emoji de corazon entero se vea bien */
+    font-family: "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Symbol", sans-serif;
+}
+@keyframes risingWholeKeys {
     0% { transform: translateY(105vh) scale(1); opacity: 1; }
     100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
 }
 
-/* Corazones estáticos crecientes */
+/* Corazón estático creciente en el centro */
 .growing-heart-center {
     position: absolute;
     top: 50%;
@@ -235,7 +257,7 @@ body {
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* === ESTILOS SNOOPY === */
+/* === ESTILOS SNOOPY (Textos limpios) === */
 #snoopy-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
